@@ -41,19 +41,19 @@ FEATURES
 CODE EXAMPLE
 ============
 
-#include "Celina.h"
+ #include "Celina.h"
  
-int task01(long p1)
-{
-  ...
-}
+ int task01(long p1)
+ {
+   ...
+ }
  
-loop()
-{
-  Celina rtos();
+ loop()
+ {
+   Celina rtos();
  
-  rtos.AddTask(task01, ...);
-  ...
+   rtos.AddTask(task01, ...);
+   ...
  
-  rtos.Run();
-}
+   rtos.Run();
+ }
