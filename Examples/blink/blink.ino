@@ -19,7 +19,8 @@ int LedOff(long led)
 int Stat(long l)
 {
   long low,high,avg;
-  Celina::GetDCStats(&low, &high, &avg);
+  long rtlow,rthigh,rtavg;
+  Celina::GetStats(&low, &high, &avg,&rtlow, &rthigh, &rtavg);
   Serial.print("Statistics low: ");
   Serial.print(low);
   Serial.print(" avg: ");
