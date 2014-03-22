@@ -5,7 +5,7 @@
  *
  * See documentation for description of Celina usage.
  *
- * STM32F407 port
+ * STM32F103CB port
  *
  * License
  *
