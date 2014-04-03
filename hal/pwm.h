@@ -1,5 +1,7 @@
 /*****************************************************************************
- * gpio.h
+ * pwm.h
+ *
+ * PWM control. Provide a logical interface to PWM pin's.
  *
  * License
  *
@@ -29,13 +31,12 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
-#ifndef _GPIO
-#define _GPIO
+#ifndef _PWM
+#define _PWM
 
 namespace hal
 {
 
 }
-
 
 #endif

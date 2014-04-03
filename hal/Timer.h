@@ -1,5 +1,5 @@
 /*****************************************************************************
- * gpio.h
+ * Timer.h
  *
  * License
  *
@@ -29,13 +29,12 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
-#ifndef _GPIO
-#define _GPIO
+#ifndef _TIMER
+#define _TIMER
 
 namespace hal
 {
 
 }
-
 
 #endif

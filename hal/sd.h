@@ -1,5 +1,7 @@
 /*****************************************************************************
- * gpio.h
+ * sd.h
+ *
+ * SD Card driver
  *
  * License
  *
@@ -29,13 +31,12 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
-#ifndef _GPIO
-#define _GPIO
+#ifndef _SD
+#define _SD
 
 namespace hal
 {
 
 }
-
 
 #endif

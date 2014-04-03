@@ -1,5 +1,6 @@
 /*****************************************************************************
  * mutex.h
+ *
  * License
  *
  * Copyright (c) 2012, Jan Berger. All rights reserved.
@@ -28,7 +29,13 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
+#ifndef _MUTEX
+#define _MUTEX
+
 namespace hal
 {
 
 }
+
+#endif
+
