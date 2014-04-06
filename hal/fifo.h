@@ -1,5 +1,11 @@
 /*****************************************************************************
- * FileName:     fifo.h
+ * FileName:     FIFO.h
+ *
+ * TODO : Implement C++ version of this.
+ *
+ * NOTE : Atmel 8 bit processors can only have 256 byte fifo's and still
+ * use the implied thread synchronization. All 32 bits can use as large
+ * buffers they want.
  *
  * License/Copyright:
  *

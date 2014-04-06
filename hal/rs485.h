@@ -34,14 +34,14 @@
 #ifndef _RS485
 #define _RS485
 
-class rs485
+class RS485
 {
 protected:
 	USART_TypeDef * USARTx;
 
 public:
 
-	rs485(USART_TypeDef * ux = NULL)
+	RS485(USART_TypeDef * ux = NULL)
 	{
 		USARTx = ux;
 	}

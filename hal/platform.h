@@ -1,7 +1,7 @@
 /*****************************************************************************
  * Platform.h
  *
- * Platform.h is the only file that allows #ifdef to support and hide
+ * Platform.h is the only file that should contain #ifdef to support and hide
  * platform differences. This file is included from main.h.
  *
  * Platform.h include all other headers and should be included in your
@@ -48,7 +48,12 @@
 #ifndef _PLATFORM
 #define _PLATFORM
 
+// Platfor selections. The following defines allow you to select platform.
+// This can be selected here, or even better defined in your main.h
 
+// #define CELINA_ARDUINO_328
+// #define CELINA_ARDUINO_2560
+// #define CELINA_STM32M3
 
 extern "C"
 {
@@ -96,6 +101,7 @@ extern "C"
 #include "Celina.h"
 
 using namespace hal;
+using namespace Celina;
 
 #endif
 

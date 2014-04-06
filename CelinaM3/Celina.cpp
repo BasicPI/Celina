@@ -42,7 +42,7 @@
 /*****************************************************************************
  * Constructor
  ****************************************************************************/
-Celina::Celina()
+Cycle::Cycle()
 {
     int x;
 
@@ -87,13 +87,13 @@ Celina::Celina()
 /*****************************************************************************
  * InstallRT
  ****************************************************************************/
-void Celina::InstallRT()
+void Cycle::InstallRT()
 {
 }
 
 /*****************************************************************************
  ****************************************************************************/
-void Celina::RemoveRT()
+void Cycle::RemoveRT()
 {
 
 }
@@ -101,14 +101,14 @@ void Celina::RemoveRT()
 /*****************************************************************************
  * GetTime
  ****************************************************************************/
-unsigned long Celina::GetTime()
+unsigned long Cycle::GetTime()
 {
 	return ETC::millis();
 }
 
 /*****************************************************************************
  ****************************************************************************/
-void Celina::SetTime(unsigned long t)
+void Cycle::SetTime(unsigned long t)
 {
  //   lTime = t;
 }
@@ -116,7 +116,7 @@ void Celina::SetTime(unsigned long t)
 /*****************************************************************************
  * IsTaskReady
  ****************************************************************************/
-int Celina::IsTaskReady(Task * task)
+int Cycle::IsTaskReady(Task * task)
 {
     unsigned long tNow;
 
@@ -145,7 +145,7 @@ int Celina::IsTaskReady(Task * task)
 /*****************************************************************************
  * RunDataCycle
  ****************************************************************************/
-void Celina::RunDataCycle()
+void Cycle::RunDataCycle()
 {
     int x;
     u32 cycle;
@@ -278,7 +278,7 @@ void Celina::RunDataCycle()
 /*****************************************************************************
  * RunRTCycle
  ****************************************************************************/
-void Celina::RunRTCycle()
+void Cycle::RunRTCycle()
 {
     int x;    unsigned long t1,t2,cycle;
     unsigned long tm1,tm2;
@@ -338,7 +338,7 @@ void Celina::RunRTCycle()
 /*****************************************************************************
  * Run
  ****************************************************************************/
-void Celina::Run()
+void Cycle::Run()
 {
 	bTerminate = false;
 	InstallRT();
@@ -350,7 +350,7 @@ void Celina::Run()
 /*****************************************************************************
  * AddTask
  ****************************************************************************/
-int Celina::AddTask(int (*task)(long),
+int Cycle::AddTask(int (*task)(long),
                     long p1,
                     int cycle,
                     char mode,
@@ -401,7 +401,7 @@ int Celina::AddTask(int (*task)(long),
 /*****************************************************************************
  * SignalTask
  ****************************************************************************/
-int Celina::SignalTask(int task, unsigned char increment)
+int Cycle::SignalTask(int task, unsigned char increment)
 {
     int x = (task & 0x0fff)-1; /* and out rt flag */
     if(task & 0x1000)
@@ -431,7 +431,7 @@ int Celina::SignalTask(int task, unsigned char increment)
 
 /*****************************************************************************
  ****************************************************************************/
-void Celina::SetStatType(int st)
+void Cycle::SetStatType(int st)
 {
     statType=(unsigned char)st;
 }
@@ -439,7 +439,7 @@ void Celina::SetStatType(int st)
 /*****************************************************************************
  * GetDCStats
  ****************************************************************************/
-void Celina::GetStats(u32 *low, u32 *high, u32 *avg,
+void Cycle::GetStats(u32 *low, u32 *high, u32 *avg,
 		u32 *rtlow, u32 *rthigh, u32 *rtavg)
 {
     *high   = lhigDCycle;
@@ -454,7 +454,7 @@ void Celina::GetStats(u32 *low, u32 *high, u32 *avg,
 /*****************************************************************************
  * SetDCStatTask
  ****************************************************************************/
-void Celina::SetDCStatTask(int task)
+void Cycle::SetDCStatTask(int task)
 {
     ltaskDCycle = task;
 }
@@ -462,7 +462,7 @@ void Celina::SetDCStatTask(int task)
 /*****************************************************************************
  * Init
  ****************************************************************************/
-void Celina::Init()
+void Cycle::Init()
 {
 	#ifdef CELINA_STM32M3
 		CoInitOS();
@@ -472,7 +472,7 @@ void Celina::Init()
 /*****************************************************************************
  * Exit
  ****************************************************************************/
-void Celina::Exit()
+void Cycle::Exit()
 {
 	bTerminate = true;
 }

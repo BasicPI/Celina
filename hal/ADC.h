@@ -34,7 +34,10 @@
 
 namespace hal
 {
+	class ADC : public HAL
+	{
 
+	};
 }
 
 #endif
