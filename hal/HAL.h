@@ -41,15 +41,15 @@
 namespace hal
 {
 	/*************************************************************************
-	 * HAL
+	 * HALBase
 	 *
 	 * Base class for all HAL modules to provide common features needed by
 	 * all.
 	 ************************************************************************/
-	class HAL
+	class HALBase
 	{
 	public:
-		HAL()
+		HALBase()
 		{
 		}
 
@@ -69,7 +69,7 @@ namespace hal
 	 * Dummy that return false on IsAvailable. Used to reprecent modules that
 	 * are not available so the system can detect hardware precens real-time.
 	 ************************************************************************/
-	class DummyModule : public HAL
+	class DummyModule : public HALBase
 	{
 	public:
 		DummyModule()

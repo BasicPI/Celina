@@ -38,9 +38,12 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  ****************************************************************************/
+#ifndef _ETC
+#define _ETC
+
 namespace hal
 {
-	class ETC : public HAL
+	class ETC : public HALBase
 	{
 	public:
 		/*****************************************************************************
@@ -52,7 +55,7 @@ namespace hal
 		{
 			unsigned int tick;
 			unsigned int l;
-			tick=CoGetOSTime();
+			tick=Celina::CelinaTickCnt;
 			l=SysTick->VAL;
 			return (tick*10) + (720000-l)/72000;
 		}
@@ -66,7 +69,7 @@ namespace hal
 		{
 			unsigned int tick;
 			unsigned int l;
-			tick=CoGetOSTime();
+			tick=Celina::CelinaTickCnt;
 			l=SysTick->VAL;
 			return (tick*10000) + (720000-l)/72;
 		}
@@ -98,3 +101,5 @@ namespace hal
 
 	};
 }
+
+#endif

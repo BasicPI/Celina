@@ -34,7 +34,10 @@
 
 namespace hal
 {
+	class DMA : public HALBase
+	{
 
+	};
 }
 
 #endif

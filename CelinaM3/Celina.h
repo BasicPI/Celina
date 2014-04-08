@@ -39,8 +39,11 @@
 #ifndef _Celina
 #define _Celina
 
+
 namespace Celina
 {
+	extern volatile unsigned long CelinaTickCnt;
+
 	#define CELINA_RTTASKS 5
 	#define CELINA_DATATASKS 20
 
@@ -127,7 +130,6 @@ namespace Celina
 
 			volatile bool bTerminate;
 				// flag set if Celina is to terminate.
-
 			u32 rtlhigDCycle;
 			u32 rtllowDCycle;
 			u32 rtlaccDCycle;

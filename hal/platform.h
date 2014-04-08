@@ -48,13 +48,17 @@
 #ifndef _PLATFORM
 #define _PLATFORM
 
-// Platfor selections. The following defines allow you to select platform.
+// Platform selections. The following defines allow you to select platform.
 // This can be selected here, or even better defined in your main.h
 
 // #define CELINA_ARDUINO_328
 // #define CELINA_ARDUINO_2560
 // #define CELINA_STM32M3
 
+#include "TypeDef.h"
+#include "HAL.h"
+
+// includes
 extern "C"
 {
 	#ifdef CELINA_STM32M3
@@ -78,17 +82,14 @@ extern "C"
 		#include "stm32f10x_tim.h"
 		#include "stm32f10x_wwdg.h"
 
-		#include <CoOS.h>
+		// Temporary fix on name conflict between STM32 drivers and HAL.
+		#undef CRC
+		#undef DAC
+		#undef DMA
+//		#include <CoOS.h>
 	#endif
-	#include "fifo.h"
+	#include "FIFO.h"
 }
-
-#include "mutex.h"
-
-#include "SysTick.h"
-#include "rtc.h"
-#include "etc.h"
-#include "gpio.h"
 
 extern "C"
 {
@@ -97,8 +98,33 @@ extern "C"
 	void SerialPutc(char c);
 }
 
-#include "rs485.h"
 #include "Celina.h"
+#include "ETC.h"
+/*
+#include "ADC.h"
+#include "Backup.h"
+#include "CAN.h"
+#include "CRC.h"
+#include "DAC.h"
+#include "DMA.h"
+#include "Ethernet.h"
+#include "FIFO.h"
+#include "Flash.h"
+#include "GPIO.h"
+#include "I2C.h"
+#include "Mutex.h"
+#include "Power.h"
+#include "PWM.h"
+*/
+#include "RS485.h"
+/*
+#include "RTC.h"
+#include "SD.h"
+#include "SysTick.h"
+#include "TCP.h"
+#include "Timer.h"
+#include "UDP.h"
+*/
 
 using namespace hal;
 using namespace Celina;

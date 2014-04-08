@@ -34,7 +34,10 @@
 
 namespace hal
 {
+	class CAN : public HALBase
+	{
 
+	};
 }
 
 #endif

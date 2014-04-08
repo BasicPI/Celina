@@ -34,7 +34,7 @@
 
 namespace hal
 {
-	class ADC : public HAL
+	class ADC : public HALBase
 	{
 
 	};

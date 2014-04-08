@@ -34,7 +34,7 @@
 
 namespace hal
 {
-	class Backup : public HAL
+	class Backup : public HALBase
 	{
 
 	};

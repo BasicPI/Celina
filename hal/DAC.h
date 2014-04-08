@@ -32,8 +32,14 @@
 #ifndef _DAC
 #define _DAC
 
+//#undef DAC
+
 namespace hal
 {
+	class DAC : public HALBase
+	{
+
+	};
 
 }
 

@@ -34,6 +34,10 @@
 
 namespace hal
 {
+	class CRC : public HALBase
+	{
+
+	};
 
 }
 

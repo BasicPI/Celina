@@ -39,6 +39,8 @@
 	// Celina assumes it is part of an application that contains a "main.h"
 	// that includes celina.h and platform specific settings needed
 
+volatile unsigned long Celina::CelinaTickCnt=0;
+
 /*****************************************************************************
  * Constructor
  ****************************************************************************/
@@ -152,7 +154,7 @@ void Cycle::RunDataCycle()
     u32 tm1,tm2;
    // t1 = ETC::micros();
     tm1=ETC::micros();
-
+u32 tt1,tt2;
     // The next block is the actual datacycle pass through loop
     for(x=0; x < CELINA_DATATASKS; x++)
     {
@@ -167,14 +169,23 @@ void Cycle::RunDataCycle()
                 DataCycle[x].lastrun += DataCycle[x].timer;
             else
                 DataCycle[x].lastrun = GetTime();
-
+//tt1 = ETC::micros();
             DataCycle[x].proc(DataCycle[x].p1);
+//tt2 = ETC::micros();
+//if(tt2-tt1 > 1000)
+//{
+//	printf("Task %d is long\n",x);
+//}
         }
     }
 
     // CPU statistics.
     //t2=ETC::micros();
     tm2=ETC::micros();
+    if(tm2-tm1 > 1000)
+    {
+      	printf("Cycle is long %d %d\n",(unsigned int)tm1,(unsigned int)tm2);
+    }
 
     // CPU statistics. Used to measure actual DC processing
     #ifdef CELINA_STATISTICS
@@ -194,6 +205,7 @@ void Cycle::RunDataCycle()
                         llowDCycleW = 99999999;
                         laccDCycleW = 0;
                         lcntDCycleW = 0;
+
                         DataCycle[ltaskDCycle-1].proc(DataCycle[ltaskDCycle-1].p1);
                         lstatClear = tm2;
                     }
@@ -317,7 +329,7 @@ void Cycle::RunRTCycle()
 						rtlcntDCycle = rtlcntDCycleW;
 
 						rtlhigDCycleW = 0;
-						rtllowDCycleW = 99999;
+						rtllowDCycleW = 999999999;
 						rtlaccDCycleW = 0;
 						rtlcntDCycleW = 0;
 						rtlstatClear = tm2;
@@ -458,6 +470,11 @@ void Cycle::SetDCStatTask(int task)
 {
     ltaskDCycle = task;
 }
+#define CFG_CPU_FREQ 	72000000
+#define CFG_SYSTICK_FREQ 100
+#define NVIC_ST_CTRL    (*((volatile u32 *)0xE000E010))
+#define NVIC_ST_RELOAD  (*((volatile u32 *)0xE000E014))
+#define RELOAD_VAL      ((u32)(( (u32)CFG_CPU_FREQ) / (u32)CFG_SYSTICK_FREQ) -1)
 
 /*****************************************************************************
  * Init
@@ -465,10 +482,18 @@ void Cycle::SetDCStatTask(int task)
 void Cycle::Init()
 {
 	#ifdef CELINA_STM32M3
-		CoInitOS();
+		//CoInitOS();
+		NVIC_ST_RELOAD =  RELOAD_VAL;
+	    NVIC_ST_CTRL   =  0x0007;
 	#endif
 }
-
+extern "C"
+{
+void SysTick_Handler(void)
+{
+    CelinaTickCnt++;                    /* Increment systerm time.                */
+}
+}
 /*****************************************************************************
  * Exit
  ****************************************************************************/
