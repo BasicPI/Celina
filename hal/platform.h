@@ -100,7 +100,7 @@ extern "C"
 
 #include "Celina.h"
 #include "ETC.h"
-/*
+
 #include "ADC.h"
 #include "Backup.h"
 #include "CAN.h"
@@ -115,16 +115,16 @@ extern "C"
 #include "Mutex.h"
 #include "Power.h"
 #include "PWM.h"
-*/
+
 #include "RS485.h"
-/*
+
 #include "RTC.h"
 #include "SD.h"
 #include "SysTick.h"
 #include "TCP.h"
 #include "Timer.h"
 #include "UDP.h"
-*/
+
 
 using namespace hal;
 using namespace Celina;
