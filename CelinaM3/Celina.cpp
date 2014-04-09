@@ -128,7 +128,6 @@ int Cycle::IsTaskReady(Task * task)
     if(task->signal)    /* signalled tasks are ALWAYS ready */
         return 1;
 
-    tNow = GetTime();
 
     switch(task->mode)
     {
@@ -137,6 +136,7 @@ int Cycle::IsTaskReady(Task * task)
         break;
     case 2:
     case 3:
+        tNow = GetTime();
         if(tNow >= task->lastrun + task->timer)
             return 1;
         break;
